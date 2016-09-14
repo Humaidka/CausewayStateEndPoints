@@ -1,13 +1,13 @@
 {
   "extends" : "thirdParty.api",
   "abstract" : false,
-  "root" : "https://${app.id}.appspot.com/_ah/api",
+  "root" : "https://causewaystateendpoints.appspot.com/_ah/api",
   "name" : "helloworld",
   "version" : "v1",
   "defaultVersion" : false,
   "discovery" : [ "PUBLIC" ],
   "adapter" : {
-    "bns" : "https://${app.id}.appspot.com/_ah/spi",
+    "bns" : "https://causewaystateendpoints.appspot.com/_ah/spi",
     "deadline" : 65.0,
     "type" : "lily"
   },
@@ -25,6 +25,28 @@
     "maxAge" : 0
   },
   "methods" : {
+    "helloworld.greetings.multiply" : {
+      "path" : "hellogreeting/{times}",
+      "httpMethod" : "post",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "replace this with your web client ID" ],
+      "clientIds" : [ "replace this with your web client ID", "replace this with your Android client ID", "replace this with your iOS client ID" ],
+      "rosyMethod" : "com.parisofnajd.causewaystateendpoints.Greetings.insertGreeting",
+      "request" : {
+        "parameters" : {
+          "times" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "helloworld.greetings.authed" : {
       "path" : "hellogreeting/authed",
       "httpMethod" : "POST",
@@ -33,21 +55,6 @@
       "audiences" : [ "replace this with your web client ID" ],
       "clientIds" : [ "replace this with your web client ID", "replace this with your Android client ID", "replace this with your iOS client ID" ],
       "rosyMethod" : "com.parisofnajd.causewaystateendpoints.Greetings.authedGreeting",
-      "request" : {
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "helloworld.greetings.listGreeting" : {
-      "path" : "hellogreeting",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ "replace this with your web client ID" ],
-      "clientIds" : [ "replace this with your web client ID", "replace this with your Android client ID", "replace this with your iOS client ID" ],
-      "rosyMethod" : "com.parisofnajd.causewaystateendpoints.Greetings.listGreeting",
       "request" : {
         "body" : "empty"
       },
@@ -76,23 +83,16 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "helloworld.greetings.multiply" : {
-      "path" : "hellogreeting/{times}",
-      "httpMethod" : "post",
+    "helloworld.greetings.listGreeting" : {
+      "path" : "hellogreeting",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ "replace this with your web client ID" ],
       "clientIds" : [ "replace this with your web client ID", "replace this with your Android client ID", "replace this with your iOS client ID" ],
-      "rosyMethod" : "com.parisofnajd.causewaystateendpoints.Greetings.insertGreeting",
+      "rosyMethod" : "com.parisofnajd.causewaystateendpoints.Greetings.listGreeting",
       "request" : {
-        "parameters" : {
-          "times" : {
-            "type" : "int32",
-            "required" : true
-          }
-        },
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -124,14 +124,17 @@
       }
     },
     "methods" : {
-      "com.parisofnajd.causewaystateendpoints.Greetings.authedGreeting" : {
+      "com.parisofnajd.causewaystateendpoints.Greetings.insertGreeting" : {
+        "request" : {
+          "$ref" : "HelloGreeting"
+        },
         "response" : {
           "$ref" : "HelloGreeting"
         }
       },
-      "com.parisofnajd.causewaystateendpoints.Greetings.listGreeting" : {
+      "com.parisofnajd.causewaystateendpoints.Greetings.authedGreeting" : {
         "response" : {
-          "$ref" : "HelloGreetingCollection"
+          "$ref" : "HelloGreeting"
         }
       },
       "com.parisofnajd.causewaystateendpoints.Greetings.getGreeting" : {
@@ -139,12 +142,9 @@
           "$ref" : "HelloGreeting"
         }
       },
-      "com.parisofnajd.causewaystateendpoints.Greetings.insertGreeting" : {
-        "request" : {
-          "$ref" : "HelloGreeting"
-        },
+      "com.parisofnajd.causewaystateendpoints.Greetings.listGreeting" : {
         "response" : {
-          "$ref" : "HelloGreeting"
+          "$ref" : "HelloGreetingCollection"
         }
       }
     }

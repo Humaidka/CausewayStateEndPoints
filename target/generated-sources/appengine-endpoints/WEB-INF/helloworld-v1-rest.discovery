@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/NJ4UQmtOwWMuicSu0yJRIb3Vpf8\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/31Kb68H8UPT_WLaoqoH8hQVtv8I\"",
  "discoveryVersion": "v1",
  "id": "helloworld:v1",
  "name": "helloworld",
@@ -11,9 +11,9 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rest",
- "baseUrl": "https://${app.id}.appspot.com/_ah/api/helloworld/v1/",
+ "baseUrl": "https://causewaystateendpoints.appspot.com/_ah/api/helloworld/v1/",
  "basePath": "/_ah/api/helloworld/v1/",
- "rootUrl": "https://${app.id}.appspot.com/_ah/api/",
+ "rootUrl": "https://causewaystateendpoints.appspot.com/_ah/api/",
  "servicePath": "helloworld/v1/",
  "batchPath": "batch",
  "parameters": {

@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/NJ4UQmtOwWMuicSu0yJRIb3Vpf8\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/31Kb68H8UPT_WLaoqoH8hQVtv8I\"",
  "discoveryVersion": "v1",
  "id": "helloworld:v1",
  "name": "helloworld",
@@ -11,8 +11,8 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rpc",
- "rootUrl": "https://${app.id}.appspot.com/_ah/api/",
- "rpcUrl": "https://${app.id}.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://causewaystateendpoints.appspot.com/_ah/api/",
+ "rpcUrl": "https://causewaystateendpoints.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
